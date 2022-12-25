@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>README.html</title>
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/npm/github-markdown-css/github-markdown.min.css"  />
+<link rel="stylesheet" type="text/css" media="all" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/github.min.css"  /><meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'><style> body { box-sizing: border-box; max-width: 740px; width: 100%; margin: 40px auto; padding: 0 10px; } </style><script id='MathJax-script' async src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script><script src='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js'></script><script>document.addEventListener('DOMContentLoaded', () => { document.body.classList.add('markdown-body'); document.querySelectorAll('pre[lang] > code').forEach((code) => { code.classList.add(code.parentElement.lang); }); document.querySelectorAll('pre > code').forEach((code) => { hljs.highlightBlock(code); }); });</script>
+</head>
+
+<body>
+
+<h1 id="lucians-luscious-lasagna">Lucian’s Luscious Lasagna</h1>
+<p>Welcome to Lucian’s Luscious Lasagna on Exercism’s Clojure Track. If
+you need help running the tests or submitting your code, check out
+<code>HELP.md</code>. If you get stuck on the exercise, check out
+<code>HINTS.md</code>, but try and solve it without using those first
+:)</p>
+<h2 id="introduction">Introduction</h2>
+<p>In Clojure, binding a value to a name is referred to as a
+<em>var</em>. Top-level (global) vars are similar to constants in other
+languages, but are commonly redefined to facilitate dynamic
+development.</p>
+<p>Top-level vars are defined using <code>def</code>:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode clojure"><code class="sourceCode clojure"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>(<span class="bu">def</span><span class="fu"> fingers </span><span class="dv">10</span>)</span></code></pre></div>
+<p>The <code>defn</code> macro can be used to define a function taking
+zero or more arguments. A function always returns the result of the last
+expression in its body.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode clojure"><code class="sourceCode clojure"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(<span class="bu">defn</span><span class="fu"> add </span>[x y]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">+</span> x y))</span></code></pre></div>
+<p>Invoking a function is done by specifying its name and passing
+arguments for each of the function’s parameters.</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode clojure"><code class="sourceCode clojure"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(<span class="bu">def</span><span class="fu"> five </span>(add <span class="dv">2</span> <span class="dv">3</span>))</span></code></pre></div>
+<p>Functions and values in Clojure can only be used <em>after</em> they
+have been defined. Using it before it has been defined results in a
+compile error.</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode clojure"><code class="sourceCode clojure"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">;; Compile error as `add` has not yet been defined</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>(<span class="bu">def</span><span class="fu"> seven </span>(add <span class="dv">3</span> <span class="dv">4</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>(<span class="bu">defn</span><span class="fu"> add </span>[x y]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">+</span> x y))</span></code></pre></div>
+<p>In Clojure, whitespace has no significance other than formatting.</p>
+<p>Clojure functions and vars are organized in namespaces. A namespace
+groups related functionality and is defined using the <code>ns</code>
+macro:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode clojure"><code class="sourceCode clojure"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">ns</span> calculator)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>(<span class="bu">def</span><span class="fu"> pi </span><span class="fl">3.14</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>(<span class="bu">defn</span><span class="fu"> add </span>[x y]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">+</span> x y))</span></code></pre></div>
+<p>Clojure supports two types of comments. Single line comments are
+preceded by <code>;</code> and the <code>comment</code> form is used to
+prevent evaluation of everything between <code>(comment</code> and
+<code>)</code>.</p>
+<h2 id="instructions">Instructions</h2>
+<p>In this exercise you’re going to write some code to help you cook a
+brilliant lasagna from your favorite cooking book.</p>
+<p>You have four tasks, all related to the time spent cooking the
+lasagna.</p>
+<h2 id="define-the-expected-oven-time-in-minutes">1. Define the expected
+oven time in minutes</h2>
+<p>Define the <code>expected-time</code> var to check how many minutes
+the lasagna should be in the oven. According to the cooking book, the
+expected oven time in minutes is 40:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode clojure"><code class="sourceCode clojure"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>expected-time</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">;;=&gt; 40</span></span></code></pre></div>
+<h2 id="calculate-the-remaining-oven-time-in-minutes">2. Calculate the
+remaining oven time in minutes</h2>
+<p>Define the <code>remaining-time</code> function that takes the actual
+minutes the lasagna has been in the oven as an argument and returns how
+many minutes the lasagna still has to remain in the oven, based on the
+expected time oven time in minutes from the previous task.</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode clojure"><code class="sourceCode clojure"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(remaining-time <span class="dv">30</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">;;=&gt; 10</span></span></code></pre></div>
+<h2 id="calculate-the-preparation-time-in-minutes">3. Calculate the
+preparation time in minutes</h2>
+<p>Define the <code>prep-time</code> function that takes the number of
+layers you added to the lasagna as an argument and returns how many
+minutes you spent preparing the lasagna, assuming each layer takes you 2
+minutes to prepare.</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode clojure"><code class="sourceCode clojure"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(prep-time <span class="dv">2</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">;;=&gt; 4</span></span></code></pre></div>
+<h2 id="calculate-the-total-working-time-in-minutes">4. Calculate the
+total working time in minutes</h2>
+<p>Define the <code>total-time</code> function that takes two arguments:
+the first argument is the number of layers you added to the lasagna, and
+the second argument is the number of minutes the lasagna has been in the
+oven. The function should return how many minutes in total you’ve worked
+on cooking the lasagna, which is the sum of the preparation time in
+minutes, and the time in minutes the lasagna has spent in the oven at
+the moment.</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode clojure"><code class="sourceCode clojure"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(total-time <span class="dv">3</span> <span class="dv">20</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">;;=&gt; 26</span></span></code></pre></div>
+<h2 id="source">Source</h2>
+<h3 id="created-by">Created by</h3>
+<ul>
+<li><span class="citation"
+data-cites="porkostomus">@porkostomus</span></li>
+</ul>
+
+</body>
+</html>
