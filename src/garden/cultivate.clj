@@ -1,5 +1,5 @@
 (ns cultivate.cultivate
-  "FIXME: my new org.corfield.new/scratch project.")
+  "")
 
 (defn exec
   "Invoke me with clojure -X cultivate.cultivate/exec"

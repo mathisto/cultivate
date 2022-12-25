@@ -1,7 +1,6 @@
 {:paths ["src"]
- :deps  {io.github.nextjournal/clerk {:mvn/version "0.12.707"}}
+ :deps  {io.github.nextjournal/clerk {:mvn/version "0.7.418"}}
  :aliases
- {:neil {:project {:name cultivate/cultivate}}
+ {:neil {:project {:name garden/garden}}
   :nextjournal/clerk {:exec-fn nextjournal.clerk/build!
-                      :exec-args {:paths ["cultivate/garden.clj"]}
-                      :nextjournal.clerk/aliases [:dev]}}}
+                      :exec-args {:paths ["garden/garden.clj"]}}}}
