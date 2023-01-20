@@ -1,6 +1,6 @@
 {:paths ["src"]
  :deps  {org.clojure/data.xml {:mvn/version "0.0.8"}
-         io.github.nextjournal/clerk {:mvn/version "0.9.513"}
+         io.github.nextjournal/clerk {:mvn/version "0.12.707"}
          djblue/portal {:mvn/version "0.35.1"}}
  :aliases
  {:neil {:project {:name garden/garden}}
